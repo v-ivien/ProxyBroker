@@ -52,7 +52,7 @@ The latest development version can be installed directly from GitHub:
 
 .. code-block:: bash
 
-    $ pip install -U git+https://github.com/constverum/ProxyBroker.git
+    $ pip install -U git+https://github.com/v-ivien/ProxyBroker.git
 
 
 Usage
