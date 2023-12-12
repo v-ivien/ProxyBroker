@@ -62,8 +62,8 @@ class Broker:
         **kwargs
     ):
         self._loop = loop or asyncio.get_event_loop()
-        self._proxies = queue or asyncio.Queue(loop=self._loop)
-        self._resolver = Resolver(loop=self._loop)
+        self._proxies = queue or asyncio.Queue()#loop=self._loop)
+        self._resolver = Resolver()#loop=self._loop)
         self._timeout = timeout
         self._verify_ssl = verify_ssl
 
@@ -186,8 +186,7 @@ class Broker:
             post=post,
             strict=strict,
             dnsbl=dnsbl,
-            loop=self._loop,
-        )
+        )#loop=self._loop,
         self._countries = countries
         self._limit = limit
 
@@ -279,9 +278,8 @@ class Broker:
             proxies=self._proxies,
             timeout=self._timeout,
             max_tries=kwargs.pop('max_tries', self._max_tries),
-            loop=self._loop,
             **kwargs
-        )
+        )#loop=self._loop,
         self._server.start()
 
         task = asyncio.ensure_future(self.find(limit=limit, **kwargs))
