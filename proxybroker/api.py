@@ -63,7 +63,7 @@ class Broker:
     ):
         self._loop = loop or asyncio.get_event_loop()
         self._proxies = queue or asyncio.Queue()#loop=self._loop)
-        self._resolver = Resolver()#loop=self._loop)
+        self._resolver = Resolver(loop=self._loop)
         self._timeout = timeout
         self._verify_ssl = verify_ssl
 
